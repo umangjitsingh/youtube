@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import type {RootState} from "../REDUX/appStore.ts";
 import {useEffect, useRef,useState} from "react";
 
-
+import clsx from "clsx";
 
 const buttonLabels = [
     { label: "All", variant: "light" },
@@ -64,8 +64,11 @@ const scrollRef=useRef<HTMLDivElement>(null);
     },[])
 
     return (
-<div className={`${hamburger ? "fixed top-14 left-0  w-screen":"fixed top-14 left-20 "} bg-black/80 backdrop-blur-2xl z-20 h-12 w-[calc(100vw-80px)] max-w-full`} >
-    <div className="relative py-3" >
+        <div className={clsx('fixed top-14 bg-black/80 backdrop-blur-2xl z-20 h-12 max-w-full',
+                hamburger ? 'left-0 w-screen' : 'left-20',
+                'w-[calc(100vw-80px)]')}>
+
+        <div className="relative py-3" >
 
         {!isAtStart &&  <button className={`${ !hamburger ? "left-39" : "left-19"} bg-black/90 text-zinc-300 p-2 rounded-full hover:bg-zinc-700 absolute top-3  hover:border-3 hover:border-zinc-700 z-50`}
                                 onClick={()=>handleScroll("left")}>

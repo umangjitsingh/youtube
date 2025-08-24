@@ -13,7 +13,7 @@ const SideBar = () => {
 
     return (
         <aside className="absolute top-0 left-0 z-20">
-            <div className={`${hamburger ? "w-[82px] h-screen bg-zinc-950" : "w-60 h-screen bg-zinc-950"}`}>
+            <div className={`${hamburger ? "w-[82px] h-screen bg-zinc-950 fixed" : "w-60 h-screen bg-zinc-950 fixed"}`}>
 
                 {hamburger ? <>
                         <SbHomeSubscribe/>

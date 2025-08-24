@@ -1,11 +1,11 @@
 import {configureStore} from "@reduxjs/toolkit";
-import appReducer from "./appSlice";
-import movieReducer from "./movieSlice"
+import appReducer from "./UI/appSlice.ts";
+import apiReducer from "./THUNK/MoviesSlice.ts"
 
-const appStore =configureStore({
-    reducer:{
-        app:appReducer,
-        movie:movieReducer
+const appStore = configureStore({
+    reducer: {
+        app: appReducer,
+        movies: apiReducer,
     }
 })
 

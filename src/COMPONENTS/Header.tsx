@@ -4,7 +4,7 @@ import {FiBell} from "react-icons/fi";
 import {IoMdMic} from "react-icons/io";
 import {LuArrowUpFromLine} from "react-icons/lu";
 import {useDispatch} from "react-redux";
-import {toggleHamburger} from "../REDUX/appSlice.ts";
+import {toggleHamburger} from "../REDUX/UI/appSlice.ts";
 
 
 
