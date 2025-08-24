@@ -13,9 +13,9 @@ const SideBarLists  = ({name,icon,onClick}:SideBarListsProps) => {
     const hamburger=useSelector((store:RootState)=>store.app.hamburgerOpen)
     return (
 <li onClick={onClick}
-    className={`${hamburger ? " w-[66px]  gap-1  hover:bg-zinc-700/60 py-3 rounded-lg text-[11px] flex flex-col items-center justify-center text-zinc-300" : "flex items-center   hover:bg-zinc-600/60 py-2 rounded-lg text-sm px-6 "  }`}>
-    <div className={`${hamburger ? "text-2xl pl-3"  : "text-2xl pr-6"} `}>{icon}</div>
-    <div className={`${hamburger ? "pl-3": "pl-0"}`}>{name}</div>
+    className={`${hamburger ? " w-[76px]  gap-1  hover:bg-zinc-700/60 py-3 rounded-lg text-[11px] flex flex-col items-center justify-center text-zinc-300" : "flex items-center   hover:bg-zinc-600/60 py-2 rounded-lg text-sm px-6 "  }`}>
+    <div className={`${hamburger ? "text-2xl pl-0"  : "text-2xl pr-6"} `}>{icon}</div>
+    <div className={`${hamburger ? "pl-0": "pl-0"}`}>{name}</div>
 </li>
     )
 }
