@@ -6,7 +6,7 @@ import GroupOfButtons
 
 const Layout = () => {
     return (
-        <div className="relative h-screen font-rob overflow-x-hidden scrollbar-thin scrollbar-thumb-white/40 scrollbar-track-black overflow-y-scroll ">
+        <div className="relative h-screen font-rob overflow-x-hidden scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-black overflow-y-scroll ">
             <Header/>
             <GroupOfButtons/>
             <SideBar/>

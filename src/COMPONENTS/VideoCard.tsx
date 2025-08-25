@@ -1,5 +1,6 @@
 import {useSelector} from "react-redux";
 import type {RootState} from "../REDUX/appStore.ts";
+import {formatNumber,getRelativeTime,formatDuration} from "../HELPERS/helperFunctions.ts"
 
 type videoCardProps={
     movie:{snippet:{
@@ -13,7 +14,8 @@ type videoCardProps={
         publishedAt:string;
 
         }
-        statistics:{viewCount:string;}
+        statistics:{viewCount:string;};
+        contentDetails:{duration:string;};
     }
 }
 
@@ -21,37 +23,17 @@ const VideoCard = ({movie}:videoCardProps) => {
     const hamburger = useSelector((store: RootState) => store.app.hamburgerOpen);
     const{title,thumbnails,channelTitle,publishedAt}=movie?.snippet;
     const{viewCount}=movie?.statistics;
+    const {duration}=movie?.contentDetails;
 
-    function formatNumber(num: number): string {
-        if (num >= 1_000_000) {
-            return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
-        }
-        if (num >= 1_000) {
-            return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
-        }
-        return num.toString();
-    }
 
-    function getRelativeTime(timestamp: string): string {
-        const now = new Date();
-        const past = new Date(timestamp);
-        const diffMs = now.getTime() - past.getTime();
-
-        const seconds = Math.floor(diffMs / 1000);
-        const minutes = Math.floor(seconds / 60);
-        const hours   = Math.floor(minutes / 60);
-        const days    = Math.floor(hours / 24);
-
-        if (days >= 1) return `${days} day${days > 1 ? 's' : ''} ago`;
-        if (hours >= 1) return `${hours} hour${hours > 1 ? 's' : ''} ago`;
-        if (minutes >= 1) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-        return `${seconds} second${seconds !== 1 ? 's' : ''} ago`;
-    }
 
 
     return (
-        <div className=" p-1 ">
-            <img className={`${hamburger ? "rounded-2xl w-full p-1 " : "rounded-2xl  w-full p-1 "}`} src={thumbnails.medium.url} alt=""/>
+        <div className=" p-1  ">
+           <div className="relative">
+               <img className={`${hamburger ? "rounded-2xl w-full p-1 " : "rounded-2xl  w-full p-1 "} `} src={thumbnails.medium.url} alt=""/>
+               <span className="text-zinc-200 px-1 py-0.5 rounded bg-black/80 text-xs font-semibold absolute right-4 bottom-4 z-30">{formatDuration(duration)}</span>
+           </div>
             <h1 className="text-base pt-2 max-w-[400px] pl-8 font-bold text-zinc-300 pb-0.5">{title}</h1>
             <p className="text-zinc-400 text-[13px] font-medium pl-8 pb-0.5">{channelTitle}</p>
             <div className="flex gap-2 pl-8 text-zinc-200">
