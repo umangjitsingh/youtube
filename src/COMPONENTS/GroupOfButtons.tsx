@@ -64,7 +64,7 @@ const scrollRef=useRef<HTMLDivElement>(null);
     },[])
 
     return (
-        <div className={clsx('fixed top-14 bg-black/80 backdrop-blur-2xl z-20 h-12 max-w-full',
+        <div className={clsx('fixed top-14 bg-black/80 backdrop-blur-2xl z-20 h-14 max-w-full ',
                 hamburger ? 'left-0 w-screen' : 'left-20',
                 'w-[calc(100vw-80px)]')}>
 

@@ -16,7 +16,7 @@ const Header = () => {
     }
 
     return (
-        <header className="h-14 w-full bg-black/80  fixed backdrop-blur-2xl z-50 pl-5 pr-6 ">
+        <header className="h-14 w-full bg-black/80  fixed backdrop-blur-2xl z-[100] pl-5 pr-6 ">
 
                 <div className="h-full w-full flex text-white justify-between items-center gap-10 lg:gap-18">
 
