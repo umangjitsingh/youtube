@@ -5,10 +5,12 @@ import GroupOfButtons
     from "./COMPONENTS/GroupOfButtons.tsx";
 
 const Layout = () => {
+
+    // @ts-ignore
     return (
         <div className="relative h-screen font-rob overflow-x-hidden scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-black overflow-y-scroll ">
             <Header/>
-            <GroupOfButtons/>
+            <GroupOfButtons position="fixed" />
             <SideBar/>
             <Outlet/>
         </div>

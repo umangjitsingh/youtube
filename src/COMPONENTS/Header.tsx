@@ -3,25 +3,28 @@ import SearchBar from "./SearchBar.tsx";
 import {FiBell} from "react-icons/fi";
 import {IoMdMic} from "react-icons/io";
 import {LuArrowUpFromLine} from "react-icons/lu";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {toggleHamburger} from "../REDUX/UI/appSlice.ts";
+import type {RootState} from "../REDUX/appStore.ts";
 
 
 
 const Header = () => {
+    const smallYoutubeHamburger=useSelector((store:RootState)=>store.app.sm_hamState)
     const dispatch = useDispatch()
 
     function handleHamburger() {
-        dispatch(toggleHamburger())
+
+      smallYoutubeHamburger &&  dispatch(toggleHamburger())
     }
 
     return (
-        <header className="h-14 w-full bg-black/80  fixed backdrop-blur-2xl z-[100] pl-5 pr-6 ">
+        <header className="h-14 w-full bg-black/80  fixed backdrop-blur-2xl z-[100] pl-6 pr-6 ">
 
                 <div className="h-full w-full flex text-white justify-between items-center gap-10 lg:gap-18">
 
                     <div className="flex gap-6 items-center justify-center  ">
-                        <button onClick={handleHamburger}><RxHamburgerMenu className=" text-4xl hover:bg-zinc-700 p-1.5 rounded-full hover:border-2 hover:border-zinc-700"/></button>
+                        <button onClick={handleHamburger}><RxHamburgerMenu className=" text-4xl hover:bg-zinc-700 p-1.5 rounded-full hover:border-2 hover:border-zinc-700 outline-none"/></button>
                         <svg   xmlns="http://www.w3.org/2000/svg" id="yt-ringo2-svg_yt8" width="93" height="20" viewBox="0 0 93 20" focusable="false" aria-hidden="true" fill="white">
                             <g>
                                 <path d="M14.4848 20C14.4848 20 23.5695 20 25.8229 19.4C27.0917 19.06 28.0459 18.08 28.3808 16.87C29 14.65 29 9.98 29 9.98C29 9.98 29 5.34 28.3808 3.14C28.0459 1.9 27.0917 0.94 25.8229 0.61C23.5695 0 14.4848 0 14.4848 0C14.4848 0 5.42037 0 3.17711 0.61C1.9286 0.94 0.954148 1.9 0.59888 3.14C0 5.34 0 9.98 0 9.98C0 9.98 0 14.65 0.59888 16.87C0.954148 18.08 1.9286 19.06 3.17711 19.4C5.42037 20 14.4848 20 14.4848 20Z" fill="#FF0033"></path>
